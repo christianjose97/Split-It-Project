@@ -1,19 +1,47 @@
-import React, { Component } from 'react';
-import { View, Image, StyleSheet, Animated, Text } from 'react-native';
 
-class LoadingScreen extends Component {
+
+
+import React, { Component } from 'react';
+import {
+    View, Image, StyleSheet, Animated, Text, SafeAreaView
+} from 'react-native';
+
+export default class WelcomeSplashScreen extends Component {
+
+    constructor(props) {
+        super(props);
+        setTimeout(() => {
+            this.props.navigation.navigate("WelcomeScreen");
+        }, 4000);
+    }
 
     render() {
-        return
-        {
-            <View>
-                <Text>
-
-                    Loading Screen
-                </Text>
-            </View>
-        };
+        return (
+            <SafeAreaView>
+                <View>
+                    <Text>
+                        This is the Splash Screen!
+                    </Text>
+                </View>
+            </SafeAreaView>
+        );
     }
 }
 
-export default LoadingScreen;
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    title: {
+        fontWeight: 'bold',
+        fontSize: 30,
+        color: 'black'
+
+    }
+
+})
+
