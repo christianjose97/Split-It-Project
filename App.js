@@ -3,9 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import WelcomeSplashScreen from './app/screens/WelcomeScreen';
 import LoadingScreen from './app/screens/LoadingScreen'
+import Navigator from './routes/homestack';
 
 export default function App() {
-  return <WelcomeSplashScreen />;
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({
