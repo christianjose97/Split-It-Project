@@ -1,23 +1,27 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import WelcomeScreen from '../app/screens/WelcomeScreen';
+
+//Cofigure Splash to Loading sreen
 import Splash from '../app/screens/LoadingScreen';
 
-
-// NAVIGATION OF SCREENS THROUGH STACKS
-
-const screens = {
-    Splash: {
-        screen: Splash, navigationOptions: { header: null }
-    },
-    WelcomeScreen: {
-        screen: WelcomeScreen, navigationOptions: { header: null }
-    },
+import Register from'../app/screens/Register';
 
 
-
+//NAVIGATION OF SCREENS THROUGH STACKS
+const stackNavigatorOptions = {
+    headerShown:false
 }
 
-const homeStack = createStackNavigator(screens);
+const AppNavigator = createStackNavigator({
+    Splash: {screen: Splash},
+    WelcomeScreen: {screen: WelcomeScreen},
+    Register: {screen: Register}
+    
+},
+{
+    defaultNavigationOptions : stackNavigatorOptions
+}
+);
 
-export default createAppContainer(homeStack)
+export default createAppContainer(AppNavigator)

@@ -14,12 +14,11 @@ import {
     ColorPropType,
     TouchableOpacity,
     Button,
-    TouchableWithoutFeedback
     
 }
     from 'react-native';
 
-/*export default class WelcomeScreen extends React.Component{
+export default class Register extends React.Component{
     render(){
         const {navigate} = this.props.navigation
         return(
@@ -41,7 +40,7 @@ import {
                     
                     
                 }}
-                >split-It</Text>
+                >Register</Text>
 
                 <Text
                 style={{
@@ -72,8 +71,10 @@ import {
                         borderRadius: 23,
                         paddingVertical:2,
                         }}>
-                    <Icon name="mail" color="dodgerblue" size={24}/>
+                    
                     <TextInput 
+                        placeholder="Email"
+                        placeholderTextColor="#00716F"
                         style={{paddingHorizontal:10}}
                     />
                         
@@ -90,8 +91,33 @@ import {
                         borderRadius: 23,
                         paddingVertical:2,
                         }}>
-                    <Icon name="mail" color="dodgerblue" size={24}/>
+                    
                     <TextInput 
+                        secureTextEntry
+                        placeholder="Password"
+                        placeholderTextColor="#00716F"
+                        style={{paddingHorizontal:10}}
+                    />
+                        
+                    </View>  
+
+                    
+                    <View style={{
+                        flexDirection: "row",
+                        alignItems: 'center',
+                        marginHorizontal: 55,
+                        borderWidth:2,
+                        marginTop:40,
+                        paddingHorizontal:10,
+                        borderColor: "dodgerblue",
+                        borderRadius: 30,
+                        paddingVertical:2,
+                        }}>
+                    
+                    <TextInput 
+                        secureTextEntry
+                        placeholder="Confirm Password"
+                        placeholderTextColor="#00716F"
                         style={{paddingHorizontal:10}}
                     />
                         
@@ -111,26 +137,15 @@ import {
                             color: 'white',
                             paddingVertical:30
                         }}>
-                           Sign in
+                           Register
                         </Text>
                     </View>
-                    <Text 
-                    
-                    onPress={()=>navigate('Register')}
-                    
-                    style={{
-                        alignSelf:"center",
-                        color: 'dodgerblue',
-                        paddingVertical:30
-                    }}>
-                        New User?
-                        </Text>
             </View>
         )
     }
-}*/
+}
 
-export default class WelcomeSplashScreen extends Component {
+/*export default class WelcomeSplashScreen extends Component {
 
     
     render() {
@@ -256,5 +271,5 @@ const styles = StyleSheet.create({
 
 
 
-})
+})*/
 
