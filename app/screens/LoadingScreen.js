@@ -30,7 +30,7 @@ export default class WelcomeSplashScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'dodgerblue',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
