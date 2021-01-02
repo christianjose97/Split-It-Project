@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Icon from '@expo/vector-icons/AntDesign';
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import {
     ImageBackground,
     StyleSheet,
@@ -19,8 +23,45 @@ import {
 }
     from 'react-native';
 
-/*export default class WelcomeScreen extends React.Component{
+export default class WelcomeScreen extends React.Component{
     render(){
+
+        function HomeScreen({ navigation }) {
+            return (
+              <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Button
+                  onPress={() => navigation.navigate('HomeScreen')}
+                  title="Home"
+                />
+              </View>
+            );
+          }
+          
+          function NotificationsScreen({ navigation }) {
+            return (
+              <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Button onPress={() => navigation.goBack()} title="Go back home" />
+              </View>
+            );
+          }
+          
+          const Drawer = createDrawerNavigator();
+          
+          export default function App() {
+            return (
+              <NavigationContainer>
+                <Drawer.Navigator initialRouteName="Home">
+                  <Drawer.Screen name="Home" component={HomeScreen} />
+                  <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+                </Drawer.Navigator>
+              </NavigationContainer>
+            );
+          }
+
+
+
+
+
         const {navigate} = this.props.navigation
         return(
             <View style={{backgroundColor:"white", height:"100%"}}>
@@ -128,133 +169,4 @@ import {
             </View>
         )
     }
-}*/
-
-export default class WelcomeSplashScreen extends Component {
-
-    
-    render() {
-        const{navigate} = this.props.navigation
-        return (
-            <SafeAreaView style={styles.container}>
-                <StatusBar barStyle={'light-content'} />
-                <KeyboardAvoidingView behavior='padding' style={styles.container}>
-                    <TouchableWithoutFeedback style={styles.container} onPress={Keyboard.dismiss}>
-                        <View style={styles.container}>
-                            <Text style={styles.title}>Split-It</Text>
-                            <View style={styles.info_Container}>
-                                <TextInput style={styles.user_input}
-                                    placeholder="Enter email or username"
-                                    placeholderTextColor='rgba(255,255,255,0.8)'
-                                    keyboardType='email-address'
-                                    returnKeyType='next'
-                                    autoCorrect={false}
-                                    onSubmitEditing={() => this.refs.txtPassword.focus()}
-                                />
-
-                                <TextInput style={styles.user_input}
-
-                                    placeholder="Enter password"
-                                    placeholderTextColor='rgba(255,255,255,0.8)'
-                                    keyboardType='email-address'
-                                    returnKeyType='go'
-                                    secureTextEntry
-                                    autoCorrect={false}
-                                    ref={"txtPassword"}
-
-                                />
-
-                                <TouchableOpacity style={styles.button_container}>
-                                    <Text style={styles.button_text}>Sign In</Text>
-                                </TouchableOpacity>
-
-                                <Text 
-                                
-                                onPress={()=>navigate('Register')}
-
-                                style={styles.new_user}
-                                
-                                >New User</Text>
-
-                            </View>
-                        </View>
-                    </TouchableWithoutFeedback>
-                </KeyboardAvoidingView>
-            </SafeAreaView>
-        );
-    }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "dodgerblue",
-        alignItems: "center",
-        justifyContent: 'center',
-        
-        
-       
-
-    },
-
-    title: {
-        fontWeight: 'bold',
-        fontSize: 50,
-        color: 'white',
-        marginBottom: 300
-    },
-
-    info_Container: {
-        position: 'absolute',
-        left: -110,
-        right: -110,
-        bottom: 0,
-        height: 300,
-        padding: 20,
-        
-
-        //backgroundColor: 'red'
-        
-
-    },
-
-    user_input:
-    {
-        height: 40,
-        textAlign: "left",
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        color: '#FFF',
-        marginBottom: 20,
-        paddingHorizontal: 10,
-        borderWidth: 2,
-        borderRadius: 23
-        
-    },
-    button_container: {
-
-        backgroundColor: 'orange',
-        paddingVertical: 15,
-        borderWidth: 2,
-        borderRadius: 23
-    },
-    button_text: {
-
-        textAlign: "center",
-        color: 'rgb(32, 53, 70)',
-    },
-
-    new_user: {
-        alignSelf: 'center',
-        color: 'black',
-        paddingVertical: 30,
-       
-
-
-
-    }
-
-
-
-
-})
-
